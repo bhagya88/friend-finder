@@ -1,4 +1,4 @@
-
+// friends module
 	module.exports = (function friends(){
 		var friendsList = [{
 	  "name":"Deepika",
