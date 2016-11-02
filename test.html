@@ -1,5 +1,11 @@
-
-	module.exports = (function friends(){
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var friends = (function friends(){
 		var friendsList = [{
 	  "name":"Deepika",
 	  "photo":"https://s-media-cache-ak0.pinimg.com/736x/7e/62/b7/7e62b78d989eb61b9bc23ee093f00a8b.jpg",
@@ -226,3 +232,27 @@ return{
 
 	}
 })();
+
+var myFriend = friends.findFriend(
+	{
+	  "name":"Akshay",
+	  "photo":"http://media1.santabanta.com/full1/Indian%20%20Celebrities(M)/Akshay%20Kumar/akshay-kumar-19a.jpg",
+	  "scores":[
+	     5,
+	     1,
+	     4,
+	     4,
+	     5,
+	     1,
+	     2,
+	     5,
+	     4,
+	     1
+	   ]
+	});
+
+	console.log(myFriend);
+	console.log(friends.getAllF)
+</script>
+</body>
+</html>
