@@ -1,4 +1,5 @@
 // friends module
+// It has the data also two functions that operate on that data
 	module.exports = (function friends(){
 		var friendsList = [{
 	  "name":"Deepika",
@@ -187,37 +188,43 @@
 	   ]
 	}];
 
-return{
 
+
+// returns an object with two functions that have access to the private data
+return{
+	// gets all friends 
 	getAllFriends: function(){
 		return friendsList;
 	},
 
-
+	// finds the most compatible friends by comparing the scores of each friend with the user's scores.
 	findFriend: function(person){
-
-						
+			
 		
-	
+						// map friendsList to compatibilityArr
+						// compatibilityArr has compatibility scores of each friend with the user
 						var compatibilityArr = friendsList.map(function(friend,index){
 
+							// sets initial value to 0
 							var compatibilityScore = 0;
 
 							friend.scores.forEach(function(score,i){
-
+								// takes absolute value of the difference in user score to corresponding friend's score to the same question 
+								//and adds to compatibilityScore.
 								compatibilityScore += Math.abs(score - person.scores[i]);
 							});
 
-						
-						
-
+							// return's the aggregate compatibityScore for that friend with the user
 							return compatibilityScore;
 								   
 
 						});
 
-
+						// find the maximum score in the compatibility array
 						var maxScore = Math.max.apply(null, compatibilityArr);
+
+						// gets the index of maxScore in the compatibility array
+						// then returns the corresponding friend from friendsList
 						return friendsList[compatibilityArr.indexOf(maxScore)];
 						
 				}
