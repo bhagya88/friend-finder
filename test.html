@@ -223,7 +223,7 @@ return{
 						});
 
 
-						var maxScore = Math.max.apply(null, compatibilityArr);
+						var minScore = Math.min.apply(null, compatibilityArr);
 						return friendsList[compatibilityArr.indexOf(maxScore)];
 						
 				}

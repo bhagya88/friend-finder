@@ -214,7 +214,8 @@ return{
 								compatibilityScore += Math.abs(score - person.scores[i]);
 							});;
 
-							friendsList.push(person)
+							// add the user information to an array
+							friendsList.push(person);
 							// return's the aggregate compatibityScore for that friend with the user
 							return compatibilityScore;
 								   
@@ -222,11 +223,11 @@ return{
 						});
 
 						// find the maximum score in the compatibility array
-						var maxScore = Math.max.apply(null, compatibilityArr);
+						var minScore = Math.min.apply(null, compatibilityArr);
 
 						// gets the index of maxScore in the compatibility array
 						// then returns the corresponding friend from friendsList
-						return friendsList[compatibilityArr.indexOf(maxScore)];
+						return friendsList[compatibilityArr.indexOf(minScore)];
 						
 				}
 
