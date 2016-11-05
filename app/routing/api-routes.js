@@ -2,14 +2,15 @@
 var friends = require('../data/friends.js');
 
 module.exports = function(app){
-	app.get('/friends',function(req,res){
-		res.json(JSON.stringify(friends.getAllFriends()));
+	app.get('/api/friends',function(req,res){
+		console.log(JSON.stringify(friends.getAllFriends(),null,2));
+		res.json(friends.getAllFriends());
 
 	});
 
-	app.post('/friends',function(req,res){
+	app.post('/api/friends',function(req,res){
 		console.log(req.body);
-		res.json(JSON.stringify(friends.findFriend(req.body)));
+		res.json(friends.findFriend(req.body));
 
 	});
 
