@@ -270,7 +270,7 @@
     	console.log('hello');
     	console.log(user);
 
-    	$.post('http://localhost:3000/api/friends',user,function(data){
+    	$.post('/api/friends',user,function(data){
     		console.log(data);
     		$('#matchName').html(data.name);
     		$('#matchImg').attr('src',data.photo);
