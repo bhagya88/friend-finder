@@ -212,8 +212,9 @@ return{
 								// takes absolute value of the difference in user score to corresponding friend's score to the same question 
 								//and adds to compatibilityScore.
 								compatibilityScore += Math.abs(score - person.scores[i]);
-							});
+							});;
 
+							friendsList.push(person)
 							// return's the aggregate compatibityScore for that friend with the user
 							return compatibilityScore;
 								   
