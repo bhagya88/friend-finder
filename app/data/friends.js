@@ -215,7 +215,7 @@ return{
 							});;
 
 							// add the user information to an array
-							//friendsList.push(person);
+							friendsList.push(person);
 							// return's the aggregate compatibityScore for that friend with the user
 							return compatibilityScore;
 								   

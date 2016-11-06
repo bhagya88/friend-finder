@@ -4,9 +4,10 @@
 	<title>Friend Finder</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
- <!-- Compiled and minified CSS -->
+ 	<!-- Compiled and minified CSS -->
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
- 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  	<!-- Jquery -->
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    
 </head>
 <body>
@@ -24,6 +25,7 @@
 		<h6 class= "black-text">About You</h6>
 		<h5>Name (Required)</h5>
 
+		<!-- form for getting user inputs -->
 		<form id="surveyForm">
 			<input type="text" name="" id="name" class="input-field col s6" required>
 
@@ -236,17 +238,17 @@
 		<!-- jquery UI -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 
-     
+    <!-- the data entered by user is proccessed in this piece of code-->
 	<script type="text/javascript">
 		$(document).ready(function() {
-	
-	  
-          
+
+        	// use materialize select
 		    $('select').material_select();
 
 		    $('#surveyForm').on('submit',function(event){
-		    	event.preventDefault();
+		    //	event.preventDefault();
 
+		    	// get user inputs and store it in an object
 		    	var user = {
 			 		name: $('#name').val().trim(),
 			  		photo: $('#photo').val().trim(),
@@ -268,6 +270,7 @@
 		    	console.log('hello');
 		    	console.log(user);
 
+		    	//ajax call to post the user info and data we get back is the best match which gets displayed in a modal
 		    	$.post('/api/friends',user,function(data){
 		    		console.log(data);
 		    		$('#matchName').html(data.name);
