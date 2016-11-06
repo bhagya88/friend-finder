@@ -1,10 +1,10 @@
-// friends module has all data and functions that operate on that data
+// friends module has all data 
 var friends = require('../data/friends.js');
 
 module.exports = function(app){
 	app.get('/api/friends',function(req,res){
-		console.log(JSON.stringify(friends.getAllFriends(),null,2));
-		res.json(getAllFriends());
+		console.log(friends);
+		res.json(friends);
 
 	});
 
@@ -15,10 +15,6 @@ module.exports = function(app){
 	});
 
 }
-
-function getAllFriends(){
-		return friendsList;
-	}
 
 
 function findFriend(user){
