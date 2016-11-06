@@ -198,36 +198,37 @@ return{
 	},
 
 	// finds the most compatible friends by comparing the scores of each friend with the user's scores.
-	findFriend: function(person){
+	findFriend: function(user){
 			
 		
-						// map friendsList to compatibilityArr
-						// compatibilityArr has compatibility scores of each friend with the user
-						var compatibilityArr = friendsList.map(function(friend,index){
+						// map friendsList to inCompatibilityArr
+						// inCompatibilityArr has inCompatibility scores of each friend with the user
+						// inCompatibility is a measure of differences in opinions
+						var inCompatibilityArr = friendsList.map(function(friend,index){
 
 							// sets initial value to 0
-							var compatibilityScore = 0;
+							var inCompatibilityScore = 0;
 
 							friend.scores.forEach(function(score,i){
 								// takes absolute value of the difference in user score to corresponding friend's score to the same question 
 								//and adds to compatibilityScore.
-								compatibilityScore += Math.abs(score - person.scores[i]);
+								inCompatibilityScore += Math.abs(score - user.scores[i]);
 							});;
 
 							// add the user information to an array
-							friendsList.push(person);
+							friendsList.push(user);
 							// return's the aggregate compatibityScore for that friend with the user
-							return compatibilityScore;
+							return inCompatibilityScore;
 								   
 
 						});
 
-						// find the maximum score in the compatibility array
-						var minScore = Math.min.apply(null, compatibilityArr);
+						// find the minimum score in the inCompatibilityArr. Best match has least amount of inCompatibilityScore
+						var minScore = Math.min.apply(null, inCompatibilityArr);
 
-						// gets the index of maxScore in the compatibility array
+						// gets the index of minScore in the inCompatibilityArr 
 						// then returns the corresponding friend from friendsList
-						return friendsList[compatibilityArr.indexOf(minScore)];
+						return friendsList[inCompatibilityArr.indexOf(minScore)];
 						
 				}
 
