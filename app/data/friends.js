@@ -1,7 +1,5 @@
-// friends module
-// It has the data also two functions that operate on that data
-	module.exports = (function friends(){
-		var friendsList = [{
+// data of friends stored as an array of objects
+	module.exports = [{
 	  name:"Deepika",
 	  photo:"https://s-media-cache-ak0.pinimg.com/736x/7e/62/b7/7e62b78d989eb61b9bc23ee093f00a8b.jpg",
 	  scores:[
@@ -190,49 +188,49 @@
 
 
 
-// returns an object with two functions that have access to the private data
-return{
-	// gets all friends 
-	getAllFriends: function(){
-		return friendsList;
-	},
+// // returns an object with two functions that have access to the private data
+// return{
+// 	// gets all friends 
+// 	getAllFriends: function(){
+// 		return friendsList;
+// 	},
 
-	// finds the most compatible friends by comparing the scores of each friend with the user's scores.
-	findFriend: function(user){
+// 	// finds the most compatible friends by comparing the scores of each friend with the user's scores.
+// 	findFriend: function(user){
 			
-		
-						// map friendsList to inCompatibilityArr
-						// inCompatibilityArr has inCompatibility scores of each friend with the user
-						// inCompatibility is a measure of differences in opinions
-						var inCompatibilityArr = friendsList.map(function(friend,index){
+						
+// 						// map friendsList to inCompatibilityArr
+// 						// inCompatibilityArr has inCompatibility scores of each friend with the user
+// 						// inCompatibility is a measure of differences in opinions
+// 						var inCompatibilityArr = friendsList.map(function(friend,index){
 
-							// sets initial value to 0
-							var inCompatibilityScore = 0;
+// 							// sets initial value to 0
+// 							var inCompatibilityScore = 0;
 
-							friend.scores.forEach(function(score,i){
-								// takes absolute value of the difference in user score to corresponding friend's score to the same question 
-								//and adds to compatibilityScore.
-								inCompatibilityScore += Math.abs(score - user.scores[i]);
-							});;
+// 							friend.scores.forEach(function(score,i){
+// 								// takes absolute value of the difference in user score to corresponding friend's score to the same question 
+// 								//and adds to compatibilityScore.
+// 								inCompatibilityScore += Math.abs(score - user.scores[i]);
+// 							});;
 
-							// add the user information to an array
-							friendsList.push(user);
-							// return's the aggregate compatibityScore for that friend with the user
-							return inCompatibilityScore;
+// 							// add the user information to an array
+// 							friendsList.push(user);
+// 							// return's the aggregate compatibityScore for that friend with the user
+// 							return inCompatibilityScore;
 								   
 
-						});
+// 						});
 
-						// find the minimum score in the inCompatibilityArr. Best match has least amount of inCompatibilityScore
-						var minScore = Math.min.apply(null, inCompatibilityArr);
+// 						// find the minimum score in the inCompatibilityArr. Best match has least amount of inCompatibilityScore
+// 						var minScore = Math.min.apply(null, inCompatibilityArr);
 
-						// gets the index of minScore in the inCompatibilityArr 
-						// then returns the corresponding friend from friendsList
-						return friendsList[inCompatibilityArr.indexOf(minScore)];
+// 						// gets the index of minScore in the inCompatibilityArr 
+// 						// then returns the corresponding friend from friendsList
+// 						return friendsList[inCompatibilityArr.indexOf(minScore)];
 						
-				}
+// 				}
 
 
 
-	}
-})();
+// 	}
+// })();
