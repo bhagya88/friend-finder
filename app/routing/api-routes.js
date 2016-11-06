@@ -2,12 +2,15 @@
 var friends = require('../data/friends.js');
 
 module.exports = function(app){
+
+	// handle get request
 	app.get('/api/friends',function(req,res){
 		console.log(friends);
 		res.json(friends);
 
 	});
 
+	// handle post requests
 	app.post('/api/friends',function(req,res){
 		console.log(req.body);
 		res.json(findFriend(req.body));
@@ -18,10 +21,14 @@ module.exports = function(app){
 
 
 function findFriend(user){
-			
-	friends= friends.filter(function(ele){
+	
+	// remove user from friends if existing	
+
+	friends = friends.filter(function(ele){
 		return ele.name !== user.name;
 	});
+
+	console.log(friends);
 	// map friendsList to einCompatibilityArr
 	// inCompatibilityArr has inCompatibility scores of each friend with the user
 	// inCompatibility is a measure of differences in opinions
@@ -37,13 +44,13 @@ function findFriend(user){
 		});;
 
 		// add the user information to an array
-		friends.push(user);
+		
 		// return's the aggregate compatibityScore for that friend with the user
 		return inCompatibilityScore;
 			   
 
 	});
-
+	friends.push(user);
 	// find the minimum score in the inCompatibilityArr. Best match has least amount of inCompatibilityScore
 	var minScore = Math.min.apply(null, inCompatibilityArr);
 
