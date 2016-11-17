@@ -29,7 +29,8 @@ function findFriend(user){
 	});
 
 	console.log(friends);
-	// map friendsList to einCompatibilityArr
+	
+	// map friendsList to inCompatibilityArr
 	// inCompatibilityArr has inCompatibility scores of each friend with the user
 	// inCompatibility is a measure of differences in opinions
 	var inCompatibilityArr = friends.map(function(friend,index){
