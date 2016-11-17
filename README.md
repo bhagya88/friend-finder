@@ -22,13 +22,9 @@ A full stack dating app where you can find a friend of greatest compatibilty by 
 * Comparing user scores with other users scores, calculating the compatibility score against each user and then picking the best match.
 
 ### Solutions found
-* Made use of bulit in functions on Array.prototype
-map
-forEach
-filter
+* Made use of bulit in functions on Array.prototype - map, filter and forEach.
 
-* Called Math.min to find minimum number in an array
-Math.min.apply(null,array)
+* Called Math.min.apply(null,array) to find minimum number in an array.
 	
 
 ### How it works
