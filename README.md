@@ -14,9 +14,8 @@ A full stack dating app where you can find a friend of greatest compatibilty by 
 
 * SERVER- Created Express server that listens for GET and POST requests.
 * MIDDLEWARE- Used body parser middle ware to make request more easier to handle.
-* ROUTING - Added routing for HTML files (GET requests) and APIs (GET and POST requests) in seperate files.
-
-
+* ROUTING - Added routing for HTML files (GET requests) and APIs (GET and POST requests) in seperate files. 
+* CLIENT -Created the frontend with HTML, MaterializeCSS, etc.
 
 ### Challenges faced         
 * Comparing user scores with other users scores, calculating the compatibility score against each user and then picking the best match.
